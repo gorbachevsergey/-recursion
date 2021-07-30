@@ -4058,48 +4058,36 @@ let base = [
             "TypeId": 1,
             "OraParentId": 132
         }
-];
+]
 
-let result = [];
+let result = []
 
 for( i = 0; i < base.length; i++){
     if (base[i].ParentId === 0) {
         result.push(base[i])
     }
-};
-function findChild(array){
-    for ( i = 0; i < array.length; i++){
-
-    }
-}
-/*function recursion (arrayBase,ArrayResult) {
-    for (j = 0; j < ArrayResult.length; j++){
-        let cash = [];
-/!*        arrayBase.forEach(function(item, index, array){
-            if (ArrayResult[j].Id === item.ParentId){
-                cash.push(item)
-            }
-        })*!/
-        for ( i = 0; i < arrayBase.length; i++){
-            if (ArrayResult[j].Id === arrayBase[i].ParentId){
-                cash.push(arrayBase[i])
-            }
-        }
-        ArrayResult[j].childs = cash
-        if (cash.length > 0){
-            recursion(arrayBase,ArrayResult[j].childs)
-        }
-        if (cash.length === 0){
-            return
-        }
-    }
 }
 
-recursion(base,result)
+function child (parent){
+    let cash = [];
+    for (j = 0; j < base.length; j++) {
+        if (parent.Id === base[j].ParentId) {
+            cash.push(base[j])
+            }
+        }
+    parent.childs = cash
+}
+
+function mainParent(array){
+    array.forEach(function(item, i, arr){
+        child(item);
+        if(item.childs.length > 0){
+            mainParent(item.childs)
+        }
+    })
+}
+
+mainParent(result)
 console.log(result)
-console.log(base.length)*/
-
-
-
 
 
