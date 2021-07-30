@@ -4070,11 +4070,11 @@ for( i = 0; i < base.length; i++){
 
 function child (parent){
     let cash = [];
-    for (j = 0; j < base.length; j++) {
-        if (parent.Id === base[j].ParentId) {
-            cash.push(base[j])
-            }
+    base.forEach(function(item, i, arr){
+        if (parent.Id === item.ParentId){
+            cash.push(item)
         }
+    })
     parent.childs = cash
 }
 
