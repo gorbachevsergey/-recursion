@@ -4059,8 +4059,9 @@ let base = [
             "OraParentId": 132
         }
 ]
-
 let result = []
+let container = document.querySelector('.list-container')
+
 
 for( i = 0; i < base.length; i++){
     if (base[i].ParentId === 0) {
@@ -4088,6 +4089,21 @@ function mainParent(array){
 }
 
 mainParent(result)
-console.log(result)
+
+function outputRecursion(array,place){
+    array.forEach(function(value, index){
+        let ul = document.createElement('ul');
+        ul.innerHTML = value.Name
+        ul.id = value.Id
+        place.append(ul)
+        if(value.childs.length > 0){
+            ul.className = 'id' + value.Id
+            let cash = document.querySelector(`.${ul.className}`)
+            outputRecursion(value.childs,cash)
+        }
+    })
+}
+
+outputRecursion(result,container)
 
 
