@@ -1,13 +1,11 @@
 /*
-.hidden{
+ul li ul {
     display: none;
 }
 
-ul ul {
-    display: none;
-}
-
-.show{
+ul li:checked ul {
     display: block;
+}*/
+.hide{
+    display: none;
 }
-*/

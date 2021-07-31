@@ -4061,7 +4061,6 @@ let base = [
 ]
 let result = []
 let container = document.querySelector('.list-container')
-git
 
 for( i = 0; i < base.length; i++){
     if (base[i].ParentId === 0) {
@@ -4090,7 +4089,7 @@ function mainParent(array){
 
 mainParent(result)
 
-function outputRecursion(array,place){
+/*function outputRecursion(array,place){
     array.forEach(function(value, index){
         let ul = document.createElement('ul');
         ul.innerHTML = value.Name
@@ -4102,8 +4101,26 @@ function outputRecursion(array,place){
             outputRecursion(value.childs,cash)
         }
     })
+}*/
+
+function tree(array){
+    let ul = document.createElement('ul')
+    array.forEach(item => {
+        let li = document.createElement('li')
+        li.textContent = item.Name
+
+        if (item.childs){
+            li.appendChild(tree(item.childs));
+        }
+
+        ul.appendChild(li)
+    })
+    return ul
 }
 
+document.querySelector('#list-container').appendChild(tree(result));
+/*
 outputRecursion(result,container)
+*/
 
 
