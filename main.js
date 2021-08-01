@@ -4060,7 +4060,6 @@ let base = [
         }
 ]
 let result = []
-let container = document.querySelector('.list-container')
 
 for( i = 0; i < base.length; i++){
     if (base[i].ParentId === 0) {
@@ -4089,38 +4088,26 @@ function mainParent(array){
 
 mainParent(result)
 
-/*function outputRecursion(array,place){
-    array.forEach(function(value, index){
-        let ul = document.createElement('ul');
-        ul.innerHTML = value.Name
-        ul.id = value.Id
-        place.append(ul)
-        if(value.childs.length > 0){
-            ul.className = 'id' + value.Id
-            let cash = document.querySelector(`.${ul.className}`)
-            outputRecursion(value.childs,cash)
-        }
-    })
-}*/
-
 function tree(array){
     let ul = document.createElement('ul')
     array.forEach(item => {
         let li = document.createElement('li')
         li.textContent = item.Name
-
-        if (item.childs){
+        if (item.childs.length > 0){
+            li.classList.add('moreChild')
             li.appendChild(tree(item.childs));
         }
-
         ul.appendChild(li)
     })
     return ul
 }
 
 document.querySelector('#list-container').appendChild(tree(result));
-/*
-outputRecursion(result,container)
-*/
+
+let body = document.querySelector('body')
+body.addEventListener('click',function (event){
+    event.target.childNodes[1].classList.toggle('showed')
+})
+
 
 

@@ -1,11 +1,16 @@
-/*
-ul li ul {
+ul li ul{
     display: none;
 }
 
-ul li:checked ul {
+.showed{
     display: block;
-}*/
-.hide{
-    display: none;
+}
+
+.moreChild::before{
+    content: "+ ";
+}
+
+
+ul li {
+    list-style: none;
 }
