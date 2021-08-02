@@ -6,11 +6,22 @@ ul li ul{
     display: block;
 }
 
-.moreChild::before{
-    content: "+ ";
+.moreChild::after{
+    content: " + ";
 }
 
 
 ul li {
     list-style: none;
 }
+
+li {
+    background-color: burlywood;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid;
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
